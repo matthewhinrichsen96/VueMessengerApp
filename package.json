@@ -1,0 +1,29 @@
+{
+  "name": "messengerapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.35.0",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "flowbite": "^3.1.2",
+    "flowbite-vue": "^0.2.1",
+    "vue": "^3.5.13",
+    "zod": "^3.25.61"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.8",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/tsconfig": "^0.7.0",
+    "tailwindcss": "^4.1.8",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vue-tsc": "^1.6.5"
+  }
+}

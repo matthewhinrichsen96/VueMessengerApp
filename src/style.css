@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "flowbite-vue/index.css";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite-vue";
+
+.nav-topBar{
+    @apply bg-white dark:bg-slate-800 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-slate-800;
+}
+
+.outer-NavDiv{
+    @apply max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4
+}
+
+.level1-NavDiv{
+    @apply flex md:order-3
+}
+.nav-sideBar{
+    @apply border rounded p-3;
+    position: fixed;
+    background-color: salmon;
+}
+
+.user-link{
+    @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+}
+
+.user-avatar{
+    @apply rounded-full w-7
+}
+
+.user-name{
+    @apply flex-1 ml-3 whitespace-nowrap
+}
+
+.team-link{
+    @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+}
+
+.team-avatar{
+    @apply rounded-full w-7
+}
+
+.team-name{
+    @apply flex-1 ml-3 whitespace-nowrap
+}
+
+.default-sidebar {
+    @apply fixed top-25 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0;
+}
+
+.sidebar-container {
+    @apply h-full px-3 py-4 overflow-y-auto bg-blue-500 dark:bg-slate-800 rounded-lg;
+}
+
+.sidebar-list {
+    @apply space-y-2 font-medium;
+}
+
+.sidebar-link {
+    @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+}
+
+.sidebar-label {
+    @apply flex-1 ml-3 whitespace-nowrap;
+}
+
+.icon {
+    @apply w-6 h-6;
+}
+
+.badge {
+    @apply inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-white bg-blue-100 rounded-full dark:bg-blue-900 dark:text-white;
+}
+
+.account-list {
+    @apply px-2;
+}
+
+.account-item {
+    @apply py-2;
+}
+
+.account-label {
+    @apply text-white px-2;
+}
+
+.sidebar{
+    @apply fixed top-25 left-0 z-40 w-64 h-screen sm:translate-x-0
+}
+
+.sidebar-container{
+    @apply h-full px-3 py-4 overflow-y-auto bg-blue-500 dark:bg-slate-800 rounded-lg
+}
+
+.sidebar-list{
+    @apply space-y-2 font-medium
+}
+
+.sidebar-link {
+    @apply flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700;
+}
+
+.sidebar-label {
+    @apply flex-1 ml-3 whitespace-nowrap;
+}
+
+.icon {
+    @apply w-6 h-6;
+}
+
+.badge {
+    @apply inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-white bg-blue-100 rounded-full dark:bg-blue-900 dark:text-white;
+}
+
+.account-list {
+    @apply px-2;
+}
+
+.account-item {
+    @apply py-2;
+}
+
+.account-label {
+    @apply text-white px-2;
+}
