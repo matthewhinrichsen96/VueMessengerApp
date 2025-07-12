@@ -14,14 +14,14 @@
   import { ref, onMounted } from 'vue';
 
   const client = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://localhost:7113',
   });
 
   const teamList = ref<Teams[]>([]);
 
   async function getTeams(){
     try {
-      const res = await client.get('/teams');
+      const res = await client.get('/teams/AllTeams');
 
       const fetchedTeams: Teams[] = res.data.Teams.map((t: any) => ({
         name: t.name,
