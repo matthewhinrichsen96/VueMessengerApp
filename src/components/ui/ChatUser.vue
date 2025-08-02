@@ -3,7 +3,7 @@
     <li v-for="user in userList" >
       <a class="user-link">
         <img :src=user.avatar class='user-avatar'/>
-        <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
+        <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
       </a>
     </li>
   </ul>
@@ -22,13 +22,13 @@ const userList = ref<User[]>([]);
 async function getUsers(){
 
   try {
-    const res = await client.get('/api/Users/All');
+    const res = await client.get('/api/Users');
 
     const fetchedUsers: User[] = res.data.map((t: any) => ({
       userId: t.userId,
       userName: t.userName,
-      firstname: t.firstname,
-      lastname: t.lastname,
+      firstName: t.firstName,
+      lastName: t.lastName,
       avatar: t.avatar,
     }));
 

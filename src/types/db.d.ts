@@ -1,8 +1,8 @@
 interface User {
     userId: string
     username: string
-    firstname: string
-    lastname: string
+    firstName: string
+    lastName: string
     avatar: string
 }
 
