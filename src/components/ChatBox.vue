@@ -112,13 +112,11 @@ import axios from "axios";
 
 const userId = 'Matthew'
 const chatId = 'matt'
-const messages = ref([
-  { id: 1, senderId: '123', text: 'Hi!', timestamp: Date.now() },
-  { id: 2, senderId: '456', text: 'Hello there!', timestamp: Date.now() }
-])
+const messages = ref<Message[]>([]);
+
 const client = axios.create({
-  baseURL: 'http://localhost:3000', // or wherever your dev server is running
-})
+  baseURL: 'https://localhost:7113',
+});
 
 const input = ref('')
 const scrollDownRef = ref<null | HTMLDivElement>(null)
@@ -127,14 +125,20 @@ const textareaRef = ref<null | HTMLTextAreaElement>(null)
 async function sendMessage() {
   if (!input.value.trim()) return
   messages.value.push({
-    id: Date.now(),
+    id: chatId,
     senderId: userId,
     text: input.value,
     timestamp: new Date().toISOString()
   })
 
   try {
-    const res = await client.post('/api/message/send', {text: input.value, chatId, userId})
+    const res = await client.post('/api/message/',
+      {
+        chatId: chatId,
+        senderId: userId,
+        text: input.value,
+        timestamp: new Date().toISOString()
+      })
 
     console.log(res.data);
   }
