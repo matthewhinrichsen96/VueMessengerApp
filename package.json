@@ -15,6 +15,7 @@
     "flowbite": "^3.1.2",
     "flowbite-vue": "^0.2.1",
     "vue": "^3.5.13",
+    "vue-router": "^4.5.1",
     "zod": "^3.25.61"
   },
   "devDependencies": {
