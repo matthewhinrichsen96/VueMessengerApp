@@ -5,7 +5,7 @@
 
       <div
           v-for="message in messages"
-          :key="message.id"
+          :key="message.chatId"
           :class="[
           'flex items-center mb-4',
           message.senderId === userId ? 'flex-row-reverse' : ''
@@ -53,7 +53,7 @@
               message.senderId === userId ? 'text-black' : 'text-white'
             ]"
           >
-            {{ formatTimestamp(message.timestamp) }}
+            {{ formatTimestamp(message.timeStamp) }}
           </span>
 
           <div
@@ -106,7 +106,6 @@
 
 <script setup lang="ts">
 import {ref, nextTick, onMounted} from 'vue'
-import {fetchRedis} from "../helpers/redis.ts";
 import {messageArrayValidator} from "../lib/validations/message.ts";
 import axios from "axios";
 
@@ -125,10 +124,10 @@ const textareaRef = ref<null | HTMLTextAreaElement>(null)
 async function sendMessage() {
   if (!input.value.trim()) return
   messages.value.push({
-    id: chatId,
+    chatId: chatId,
     senderId: userId,
     text: input.value,
-    timestamp: new Date().toISOString()
+    timeStamp: new Date().toISOString()
   })
 
   try {
@@ -139,8 +138,6 @@ async function sendMessage() {
         text: input.value,
         timestamp: new Date().toISOString()
       })
-
-    console.log(res.data);
   }
   catch(error){
     console.log("error", error);
@@ -154,13 +151,20 @@ async function sendMessage() {
 
 async function getChatMessages(chatId: string, userId: string) {
   try {
-    const results: string[] = await fetchRedis(
-        'zrange',
-        `chat:${userId}:${chatId}`,
-        0,
-        -1
-    )
-    const dbMessages: Message[] = results.map((messages) => JSON.parse(messages))
+    const results = await client.get('/api/message/', {
+      params: {
+        chatId: chatId,
+        userId: userId
+      }
+    })
+
+    const dbMessages: Message[] = results.data.map((message: Message) => ({
+      chatId: message.chatId,
+      senderId: message.senderId,
+      text: message.text,
+      timeStamp: message.timeStamp
+    }));
+
     const newMessages = messageArrayValidator.parse(dbMessages)
 
     messages.value = [...messages.value, ...newMessages];

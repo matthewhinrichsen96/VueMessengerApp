@@ -1,20 +1,20 @@
 interface User {
-    userId: string
-    username: string
-    firstName: string
-    lastName: string
-    avatar: string
+  userId: string
+  username: string
+  firstName: string
+  lastName: string
+  avatar: string
 }
 
 interface Message {
-    id: string
-    senderId: string
-    text: string
-    timestamp: string
-  }
+  chatId: string
+  senderId: string
+  text: string
+  timeStamp: string
+}
 
-  interface Teams {
-    teamId: number
-    name: string
-    avatar: string
-  }
+interface Teams {
+  teamId: number
+  name: string
+  avatar: string
+}
