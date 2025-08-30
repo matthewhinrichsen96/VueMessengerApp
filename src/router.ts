@@ -10,5 +10,10 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/chat',
     component: Chat
+  },
+  {
+    path: '/chat/:chatId',
+    component: () => import("./pages/Chat.vue"),
+    props: true
   }
 ];

@@ -109,8 +109,11 @@ import {ref, nextTick, onMounted} from 'vue'
 import {messageArrayValidator} from "../lib/validations/message.ts";
 import axios from "axios";
 
+const { chatId } = defineProps<{
+  chatId : string
+}>()
+
 const userId = 'Matthew'
-const chatId = 'matt'
 const messages = ref<Message[]>([]);
 
 const client = axios.create({
